@@ -35,7 +35,7 @@
     height: 300px;
     margin: 10px;
     border-radius: 50px;
-    background: url('https://fidellabz.github.io/ImageGallery/assets/images/lastovich.png');
+    background: url("https://fidellabz.github.io/ImageGallery/assets/images/lastovich.png");
     background-size: cover;
     background-position: center;
     position: relative;
@@ -43,25 +43,25 @@
 }
 
 .img-box:nth-child(2){
-    background: url('https://fidellabz.github.io/ImageGallery/assets/images/fauxels.jpg');
+    background: url("https://fidellabz.github.io/ImageGallery/assets/images/fauxels.jpg");
     background-size: cover;
     background-position: center;
 }
 
 .img-box:nth-child(3){
-    background: url('https://fidellabz.github.io/ImageGallery/assets/images/shkraba.jpg');
+    background: url("https://fidellabz.github.io/ImageGallery/assets/images/shkraba.jpg");
     background-size: cover;
     background-position: center;
 }
 
 .img-box:nth-child(4){
-    background: url('https://fidellabz.github.io/ImageGallery/assets/images/spiske.jpg');
+    background: url("https://fidellabz.github.io/ImageGallery/assets/images/spiske.jpg");
     background-size: cover;
     background-position: center;
 }
 
 .img-box:nth-child(5){
-    background: url('https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp');
+    background: url("https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp");
     background-size: cover;
     background-position: center;
 }
