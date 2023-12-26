@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Image Gallery</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <!-- Custom styles for this template -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+<!-- Hero Section with Image Gallery -->
+<div class="jumbotron jumbotron-fluid text-center">
+  <div class="container">
+    <h1 class="display-4">Image Gallery</h1>
+    <p class="lead">Click to view the amazing works of the great and wonderful creator</p>
+  </div>
+</div>
+
+<div class="container mb-5">
+  <div class="col">
+    <!-- Image Gallery -->
+    <div class=" gallery">
+        <div class="img-box" onclick="openModal('/assets/images/lastovich.png')"><h3>Hello World</h3></div>
+        <div class="img-box" onclick="openModal('assets/images/fauxels.jpg')"><h3>Collaboration</h3></div>
+        <div class="img-box" onclick="openModal('assets/images/shkraba.jpg')"><h3>Artistic</h3></div>
+        <div class="img-box" onclick="openModal('assets/images/spiske.jpg')"><h3>Camera Lens</h3></div>
+        <div class="img-box" onclick="openModal(`https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp`)"><h3>Nature</h3></div>
+        <div class="img-box" onclick="openModal('https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp')"><h3>Scenery</h3></div>
+        <div class="img-box" onclick="openModal('https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain3.webp')"><h3>Mountain</h3></div>
+    </div>
+  </div>
+</div>
+
+<!-- Additional Content Goes Here -->
+
+<!-- Image Gallery at the Other End -->
+<div class="container mt-5">
+    <h2 class="text-center pb-5">Cute  Cats Photos</h2>
+      
+  <div class="row">
+    <div class="col-md-12 d-flex justify-content-center align-items-center">
+      <!-- Example Image 1 -->
+      <div class="col-md-4 mb-4 img-box-2" onclick="openModal('https://placekitten.com/300/200')"><h3>Cutie kitten</h3>
+      </div>
+      <!-- Example Image 2 -->
+      <div class="col-md-4 mb-4 img-box-2" onclick="openModal('https://placekitten.com/301/200')"><h3>Patty kitty</h3>
+      </div>
+      <!-- Example Image 3 -->
+      <div class="col-md-4 mb-4 img-box-2" onclick="openModal('https://placekitten.com/302/200')"><h3>Wendy kitty</h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="myModal" class="modal">
+  <span class="close" onclick="closeModal()">&times;</span>
+  <div class="modal-content-container">
+      <img class="modal-content" id="modalImg">
+      <div class="modal-buttons">
+          <button class="btn btn-light download mr-5" onclick="downloadImage()">Download</button>
+          <button class="btn btn-light like px-4" onclick="toggleLike()">
+            <span class="bi bi-heart-fill teal-color pr-2 heart"></span> 
+            <span class="like-counter">0</span> Likes
+          </button>
+      </div>
+  </div>
+</div>
+
+
+
+
+    <script>
+        function closeModal() {
+            var modal = document.getElementById('myModal');
+            modal.style.display = 'none';
+        }
+
+        function downloadImage() {
+          var modalImg = document.getElementById('modalImg');
+          var link = document.createElement('a');
+          link.href = modalImg.src;
+          link.download = 'image.jpg';
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        }
+
+// Retrieve stored like counts from localStorage or initialize an empty object
+let likeCounts = JSON.parse(localStorage.getItem('likeCounts')) || {};
+
+function openModal(imageSrc) {
+    var modal = document.getElementById('myModal');
+    var modalImg = document.getElementById('modalImg');
+    var likeCounter = document.querySelector('.like-counter');
+
+    // Update like count based on the selected image
+    likeCounts[imageSrc] = likeCounts[imageSrc] || 0;
+    likeCounter.textContent = likeCounts[imageSrc];
+
+    modal.style.display = 'block';
+    modalImg.src = imageSrc;
+}
+
+function toggleLike() {
+    var modalImg = document.getElementById('modalImg');
+    var likeCounter = document.querySelector('.like-counter');
+
+    // Get the current like count for the selected image
+    likeCounts[modalImg.src] = likeCounts[modalImg.src] || 0;
+
+    // Toggle like status and update the counter
+    if (modalImg.src in likeCounts) {
+        likeCounts[modalImg.src]++;
+        likeCounter.textContent = likeCounts[modalImg.src];
+
+        // Store updated likeCounts in localStorage
+        localStorage.setItem('likeCounts', JSON.stringify(likeCounts));
+    }
+
+    // Add or remove the 'active' class on the heart icon
+    $('.heart').toggleClass("active");
+}
+
+
+    </script>
+
+</body>
+</html>

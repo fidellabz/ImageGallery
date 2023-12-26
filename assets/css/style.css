@@ -1,0 +1,273 @@
+/* Add Bootstrap icons */
+@import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.15.0/font/bootstrap-icons.css');
+
+
+*{
+    margin:0;
+    padding:0;
+    font-family:'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.container h1, p{
+    text-align: center;
+}
+
+.gallery{
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     margin-top:50px;
+}
+
+.gallery-img {
+    width: 100%;
+    height: auto;
+  }
+  
+.img-box{
+    width: 100px;
+    height: 300px;
+    margin: 10px;
+    border-radius: 50px;
+    background: url(/assets/images/lastovich.png);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    transition: width 0.5s ;
+}
+
+.img-box:nth-child(2){
+    background: url(/assets/images/fauxels.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.img-box:nth-child(3){
+    background: url(/assets/images/shkraba.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.img-box:nth-child(4){
+    background: url(/assets/images/spiske.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.img-box:nth-child(5){
+    background: url('https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+.img-box:nth-child(6){
+    background: url('https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp');
+    background-size: cover;
+    background-position: center;
+}
+.img-box:nth-child(7){
+    background: url('https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain3.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+.img-box:nth-child(8){
+    background: url('https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp');
+    background-size: cover;
+    background-position: center;
+}
+
+.img-box:nth-child(9){
+    background: url('https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain1.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+.img-box-2{
+    width: 100px;
+    height: 300px;
+    margin: 10px;
+    border-radius: 50px;
+    background: url('https://placekitten.com/300/200');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    transition: width 0.5s ;
+}
+
+.img-box-2:nth-child(2){
+    background: url('https://placekitten.com/301/200');
+    background-size: cover;
+    background-position: center;
+}
+
+.img-box-2:nth-child(3){
+    background: url('https://placekitten.com/302/200');
+    background-size: cover;
+    background-position: center;
+}
+
+.img-box h3,
+.img-box-2 h3 {
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+    left:30px;
+    opacity: 0;
+    transition: bottom 0.5s, opacity 0.5s;
+}
+
+.img-box:hover,
+.img-box-2:hover{
+    width: 400px;
+    cursor: pointer;
+}
+
+.img-box:hover h3,
+.img-box-2:hover h3{
+    font-size: large;
+  opacity: 1;
+  bottom: 25px
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    flex: 1;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.modal-content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 100; 
+    max-height: 100%; 
+    margin-top: 5%;
+}
+
+.modal-content {
+    width: 500px; /* Set your desired fixed width */
+    height: 400px; /* Set your desired fixed height */
+    object-fit: cover; 
+}
+
+/* Add this style to center the buttons */
+.modal-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.like:hover, .download:hover {
+    background: #28a745;
+    color: #fff;
+}
+
+.like.active {
+    background-color: #28a745;
+    color: #fff;
+}
+
+/* iamojuolaeayaba */
+
+.close {
+    color: #fff;
+    font-size: 45px;
+    position: absolute;
+    top: 27px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+.heart{
+    color: red;
+} 
+
+.heart.active {
+    color: red;
+    animation: animate .8s steps(28) 1;
+    background-position: right;
+}.heart.active {
+    color: red;
+    animation: animate .8s steps(28) 1, dance 1s ease infinite;
+    background-position: right;
+}
+
+@keyframes animate {
+    0% {
+        background-position: left;
+    }
+    100% {
+        background-position: right;
+    }
+}
+
+@keyframes dance {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    25%, 75% {
+        transform: translateY(-10px);
+    }
+    50% {
+        transform: translateY(0);
+    }
+}
+
+
+/* Add media query for smaller screens (mobile) */
+@media (max-width: 767px) {
+
+    /* .container .col{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+        top:0;
+    } */
+
+    .gallery {
+        flex-direction: column; /* Change to column layout for smaller screens */
+        align-items: center;
+    }
+
+    .img-box {
+        width: 100%;
+        max-width: none;
+        height: 100px;
+}
+
+.img-box:hover{
+    height: 300px;
+    cursor: pointer;
+}
+
+/* Modal styles */
+.modal-content-container {
+    margin-top: 20%;
+}
+
+.modal-content {
+    max-width: 350px; 
+}
+}
